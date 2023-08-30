@@ -1,9 +1,8 @@
-package SDEmpApp.buissness;
+package my_W17.buissness;
 
-import SDEmpApp.infrastructure.database.entities.CompanyEntity;
-import SDEmpApp.infrastructure.database.jparepositories.CompanyJpaRepository;
+import my_W17.infrastructure.database.entities.CompanyEntity;
+import my_W17.infrastructure.database.jparepositories.CompanyJpaRepository;
 import lombok.AllArgsConstructor;
-import lombok.Setter;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -27,11 +26,12 @@ public class CompanyService {
         System.out.println("companyEntity2: " + companyEntity2);
         System.out.println("companyEntity3: " + companyEntity3);
 
-        Optional<CompanyEntity> byId1 = companyJpaRepository.findById(1);
-        Optional<CompanyEntity> byId2 = companyJpaRepository.findById(2);
-        Optional<CompanyEntity> byId3 = companyJpaRepository.findById(3);
-        System.out.println("### Employee1: " + byId1);
-        System.out.println("### Employee2: " + byId2);
-        System.out.println("### Employee3: " + byId3);
+        Optional<CompanyEntity> byId1 = companyJpaRepository.findById(companyEntity1.getCompanyId());
+        Optional<CompanyEntity> byId2 = companyJpaRepository.findById(companyEntity2.getCompanyId());
+        Optional<CompanyEntity> byId3 = companyJpaRepository.findById(companyEntity3.getCompanyId());
+        System.out.println("### Employee1: " + byId1.orElseThrow());
+        System.out.println("### Employee2: " + byId2.orElseThrow());
+        System.out.println("### Employee3: " + byId3.orElseThrow());
+
     }
 }

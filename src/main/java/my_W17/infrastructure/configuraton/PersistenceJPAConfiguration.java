@@ -1,7 +1,7 @@
-package SDEmpApp.infrastructure.configuraton;
+package my_W17.infrastructure.configuraton;
 
-import SDEmpApp.infrastructure.database.entities._EntityMarker;
-import SDEmpApp.infrastructure.database.jparepositories._JpaRepositoryMarker;
+import my_W17.infrastructure.database.entities._EntityMarker;
+import my_W17.infrastructure.database.jparepositories._JpaRepositoryMarker;
 import jakarta.persistence.EntityManagerFactory;
 import lombok.AllArgsConstructor;
 import org.flywaydb.core.Flyway;
@@ -35,7 +35,7 @@ public class PersistenceJPAConfiguration {
     private final org.springframework.core.env.Environment environment;
 
     @Bean
-//    @DependsOn("flyway")
+    @DependsOn("flyway")
     public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
         var entityManagerFactoryBean = new LocalContainerEntityManagerFactoryBean();
         entityManagerFactoryBean.setDataSource(dataSource());
@@ -79,13 +79,13 @@ public class PersistenceJPAConfiguration {
 
 
 
-//    @Bean(initMethod = "migrate")
-//    Flyway flyway() {
-//        ClassicConfiguration configuration = new ClassicConfiguration();
-//        configuration.setBaselineOnMigrate(true);
-//        configuration.setLocations(new Location("filesystem:src/main/resources/flyway/migrations"));
-//        configuration.setDataSource(dataSource());
-//        return new Flyway(configuration);
-//    }
+    @Bean(initMethod = "migrate")
+    Flyway flyway() {
+        ClassicConfiguration configuration = new ClassicConfiguration();
+        configuration.setBaselineOnMigrate(true);
+        configuration.setLocations(new Location("filesystem:src/main/resources/flyway/migrations"));
+        configuration.setDataSource(dataSource());
+        return new Flyway(configuration);
+    }
 
 }

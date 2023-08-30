@@ -1,6 +1,6 @@
-package SDEmpApp.infrastructure.database.jparepositories;
+package my_W17.infrastructure.database.jparepositories;
 
-import SDEmpApp.infrastructure.database.entities.CompanyEntity;
+import my_W17.infrastructure.database.entities.CompanyEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

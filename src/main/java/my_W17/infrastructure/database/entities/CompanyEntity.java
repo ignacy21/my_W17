@@ -1,4 +1,4 @@
-package SDEmpApp.infrastructure.database.entities;
+package my_W17.infrastructure.database.entities;
 
 import jakarta.persistence.*;
 import lombok.*;

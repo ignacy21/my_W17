@@ -1,6 +1,6 @@
-package SDEmpApp.buissness;
+package my_W17.buissness;
 
-import SDEmpApp.infrastructure.database.entities.CompanyEntity;
+import my_W17.infrastructure.database.entities.CompanyEntity;
 
 public class CompanyData {
 
